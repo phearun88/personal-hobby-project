@@ -1,0 +1,57 @@
+<div class="container conBody pd-Bottom-50">
+
+    <div *ngIf="isSuccess" class="alert alert-dismissible alert-success" id="hiddenId">
+        <button type="button" class="btn-close" data-bs-dismiss="alert" (click)="btnCloseAlert()"></button>
+        {{ successMessage }}
+    </div>
+
+    <div *ngIf="isError" class="alert alert-dismissible alert-danger" id="hiddenId">
+        <button type="button" class="btn-close" data-bs-dismiss="alert" (click)="btnCloseAlert()"></button>
+        {{ errMessage }}
+    </div>
+    <h1> Cambodian foods every visitor needs to try</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th> &nbsp; </th>
+                <th class="textCenter">
+                    <select [value]="selectedOption" class="form-select col-sm-3" (change)="onShow($event)">
+                        <option value="5" selected>5</option>
+                        <option value="10">10</option>
+                        <option value="15">15</option>
+                    </select>
+                </th>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <th class="textCenter" *ngIf="isLogIn()">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let food of foods">
+                <td class="col-sm-9"><a routerLink="/foods/{{food._id}}" class="textName">
+                        <img src="{{food.image}}" class="iconFood" />{{food.name}}</a></td>
+                <td class="col-sm-2 textCenter">
+                    <span *ngIf="isLogIn()">
+                        <a routerLink="/editfood/{{food._id}}" class="btn btn-primary btn-sm">Edit</a> &nbsp;
+                        <a routerLink="/foods" class="btn btn-danger btn-sm" (click)="onDeleteList(food._id)">Delete</a>
+                    </span>
+
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="pd-Bottom-50">
+        <ul class="pagination">
+            <li class="page-item">
+                <button (click)="previousPageButton()" class="btn btn-primary" type="button"
+                    [disabled]="disablePreviousButton()">previous</button>
+            </li>
+            <li class="page-item">
+                <button (click)="nextPageButton()" class="btn btn-primary" type="button"
+                    [disabled]="disableNextButton()">next</button>
+            </li>
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,27 @@
+<div class="container conBody pd-Bottom-50">
+
+    <div *ngIf="isSuccess" class="alert alert-dismissible alert-success" id="hiddenId">
+        <button type="button" class="btn-close" data-bs-dismiss="alert" (click)="btnCloseAlert()"></button>
+        {{ successMessage }}
+    </div>
+
+    <div *ngIf="isError" class="alert alert-dismissible alert-danger" id="hiddenId">
+        <button type="button" class="btn-close" data-bs-dismiss="alert" (click)="btnCloseAlert()"></button>
+        {{ errMessage }}
+    </div>
+
+    <h1>Update Country</h1>
+
+    <div>
+        <form [formGroup]="countryUpdateFormGroup" (ngSubmit)="update(countryUpdateFormGroup)">
+            <label>Name </label> <br>
+            <input placeholder="Name" type="text" formControlName="name" class="form-control"><br>
+            <label>ZipCode </label> <br>
+            <input placeholder="ZipCode" type="text" formControlName="zipcode" class="form-control"><br>
+            <button type="button" routerLink="/foods/{{foodId}}" class="btn btn-success">Back</button>
+            &nbsp;
+            <button type="submit" class="btn btn-success">Save</button>
+        </form>
+
+    </div>
+</div>

@@ -1,0 +1,54 @@
+<div class="container conBody pd-Bottom-50">
+
+    <div *ngIf="isSuccess" class="alert alert-dismissible alert-success" id="hiddenId">
+        <button type="button" class="btn-close" data-bs-dismiss="alert" (click)="btnCloseAlert()"></button>
+        {{ successMessage }}
+    </div>
+
+    <div *ngIf="isError" class="alert alert-dismissible alert-danger" id="hiddenId">
+        <button type="button" class="btn-close" data-bs-dismiss="alert" (click)="btnCloseAlert()"></button>
+        {{ errMessage }}
+    </div>
+
+    <div class="col-sm-12 row">
+        <H1><B>{{food.name}}</B></H1>
+        <div class="col-sm-3">
+            <img src="{{food.image}}" class="foodImages" />
+        </div>
+        <div class="col-sm-9">
+            <ul class="pd-left-50">
+                <B>Ingredients:</B>
+                <li *ngFor="let ingredient of food.ingredients">
+                    {{ingredient}}
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-sm-12"><b>Country: </b>
+        <a *ngIf="isLogIn()" routerLink="/addcountry/{{food._id}}" class="btn btn-info btn-sm" id="btnAdd">Add</a>
+        <div class="col-sm-12">
+            <table class="pd-left-50">
+                <thead>
+                    <th>Name</th>
+                    <th>ZipCode</th>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let countrys of food.country">
+                        <td class="col-sm-5">{{countrys.name}}</td>
+                        <td class="col-sm-4">{{countrys.zipcode}}</td>
+                        <td class="col-sm-3">
+                            <span *ngIf="isLogIn()">
+                                <a type="button" class="btn btn-info btn-sm"
+                                    routerLink="country/{{countrys._id}}">Edit</a>&nbsp;
+                                <button type="button" class="btn btn-info btn-sm"
+                                    (click)="onDeleteCountry(countrys._id)">Delete</button>
+                            </span>
+                        </td>
+                    </tr>
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+    <button *ngIf="isLogIn()" (click)="onDelete()" class="btn btn-danger"> delete</button>
+</div>

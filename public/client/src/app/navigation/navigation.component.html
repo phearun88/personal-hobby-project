@@ -1,0 +1,35 @@
+<nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
+    <div class="container-fluid">
+
+
+        <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item"> <a (click)="onHome()" class="nav-link active btn">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a (click)="onFoods()" class="nav-link active btn">Foods</a>
+                </li>
+                <li class="nav-item">
+                    <a routerLink="/search" class="nav-link active btn">Search</a>
+                </li>
+                <li class="nav-item"  *ngIf="isLogIn()">
+                    <a routerLink="/addfood" class="nav-link active btn">Add</a>
+                </li>
+                <li *ngIf="!isLogIn()" class="nav-item">
+                    <a routerLink="/register" class="nav-link active btn">Register</a>
+                </li>
+            </ul>
+            <form *ngIf="!isLogIn()" [formGroup]="loginFormGroup" (ngSubmit)="login(loginFormGroup)" class="d-flex">
+                <input class="form-control me-sm-2" formControlName="username" type="text" placeholder="UserName">
+                <input class="form-control me-sm-2" formControlName="password" type="password" placeholder="Password">
+                <button class="btn btn-secondary my-2 my-sm-0" type="submit">Login</button>
+            </form>
+            <a *ngIf="isLogIn()" class="navbar-brand btnHome" (click)="onHome()"><B>{{getName()}}</B></a>
+            &nbsp;
+            <button *ngIf="isLogIn()" (click)="isLogout()" class="btn btn-secondary my-2 my-sm-0" type="button">LogOut</button>
+            
+        </div>
+    </div>
+
+
+</nav>

@@ -1,0 +1,29 @@
+<div class="container conBody pd-Bottom-50">
+    <div *ngIf="isSuccess" class="alert alert-dismissible alert-success" id="hiddenId">
+        <button type="button" class="btn-close" data-bs-dismiss="alert" (click)="btnCloseAlert()"></button>
+        {{ successMessage }}
+    </div>
+
+    <div *ngIf="isError" class="alert alert-dismissible alert-danger" id="hiddenId">
+        <button type="button" class="btn-close" data-bs-dismiss="alert" (click)="btnCloseAlert()"></button>
+        {{ errMessage }}
+    </div>
+    
+    <h1>Register</h1>
+
+    <div>
+        <form [formGroup]="registerFormGroup" (ngSubmit)="register(registerFormGroup)">
+            <label> Name </label> <br>
+            <input placeholder="Name" type="text" formControlName="name" class="form-control"><br>
+            <label> UserName </label> <br>
+            <input placeholder="UserName" type="text" formControlName="username" class="form-control"><br>
+            <label>Password </label> <br>
+            <input placeholder="Password" type="password" formControlName="password" class="form-control"><br>
+
+            <label>Repeat Password </label> <br>
+            <input placeholder="Repeat Password " type="password" formControlName="repeat_password" class="form-control"><br>
+
+            <button type="submit" class="btn btn-success">Register</button>
+        </form>
+    </div>
+</div>

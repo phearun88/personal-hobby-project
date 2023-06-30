@@ -1,0 +1,44 @@
+<div class="container conBody pd-Bottom-50">
+    <h1>Search</h1>
+    <form class="col-sm-12" [formGroup]="searchForm" (ngSubmit)="search()">
+        <div class="input-group mb-3">
+            <input type="search" class="form-control" formControlName="title" placeholder="Name"
+                aria-describedby="button-addon2">
+            <button class="btn btn-success" type="submit">Search</button>
+        </div>
+    </form>
+
+    <!-- <ul>
+        <li *ngFor="let food of foods">
+            <label for="" class="col-sm-3"><a routerLink="/foods/{{food._id}}">{{food.name}} </a></label>
+        </li>
+    </ul> -->
+
+    <div class="col-sm-12">
+        <!-- <h1> Cambodian foods every visitor needs to try</h1> -->
+        <table class="table">
+
+            <tbody>
+                <tr *ngFor="let food of foods">
+                    <td class="col-sm-9"><a routerLink="/foods/{{food._id}}" class="textName">
+                            <img src="{{food.image}}" class="iconFood" /> {{food.name}} </a></td>
+
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="col-sm-12 disPlayNone"  id="hiddenId">
+            <ul class="pagination">
+                <li class="page-item">
+                    <button (click)="previousPageButton()" class="btn btn-primary" type="button"
+                        [disabled]="disablePreviousButton()">previous</button>
+                </li>
+                <li class="page-item">
+                    <button (click)="nextPageButton()" class="btn btn-primary" type="button"
+                        [disabled]="disableNextButton()">next</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</div>

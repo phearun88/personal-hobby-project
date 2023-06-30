@@ -1,0 +1,24 @@
+<div class="container conBody pd-Bottom-50">
+    <h1>Add Food</h1>
+
+    <div class="">
+        <form [formGroup]="addFoodFormGroup" (ngSubmit)="register(addFoodFormGroup)">
+            <label> Name </label> <br>
+            <input placeholder="Name" type="text" formControlName="name" class="form-control"><br>
+
+            <label> Image </label> <br>
+            <input placeholder="Image Url" type="text" formControlName="image" class="form-control"><br>
+
+            <label>Ingredients </label> <br>
+            <input placeholder="Example: Pepper,Crab,Peppercorns,Sauce " type="text" formControlName="ingredients" class="form-control"><br>
+
+            <label>CountryName</label> <br>
+            <input placeholder="CountryName" type="text" formControlName="country" class="form-control"><br>
+
+            <label>ZipCode </label> <br>
+            <input placeholder="ZipCode" type="text" formControlName="zipcode" class="form-control"><br>
+
+            <button type="submit" class="btn btn-success">Save</button>
+        </form>
+    </div>
+</div>

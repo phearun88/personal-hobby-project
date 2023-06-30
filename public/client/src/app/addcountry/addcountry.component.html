@@ -1,0 +1,17 @@
+<div class="container conBody pd-Bottom-50">
+    <h1>Add Country</h1>
+
+    <form #addCountryForm="ngForm" (ngSubmit)="addCountry()">
+        <label class="form-label">Country:</label>
+        <input type="hidden" name="foodId" [(ngModel)]="foodId"/>
+        <input class="form-control" placeholder="Country Name" type="text" name="name" [(ngModel)]="name"/>
+        <label class="form-label">ZipCode:</label>
+        <input class="form-control" placeholder="ZipCode" type="text" name="zipcode" [(ngModel)]="zipcode"/>
+        <div class="margin-top-20">
+            <button type="button" routerLink="/foods/{{foodId}}" class="btn btn-success">Back</button>
+            &nbsp;
+            <button class="btn btn-primary " type="submit">Save</button>
+        </div>
+        
+    </form>
+</div>
