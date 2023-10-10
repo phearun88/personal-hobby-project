@@ -35,6 +35,7 @@ export class FoodComponent {
 
     this.foodService.getFood(this.foodId).subscribe(food => {
       this.food = food;
+      console.log(this.food)
     })
   }
 
