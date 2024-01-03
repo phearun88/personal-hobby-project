@@ -5,4 +5,4 @@
 - Angular 2
 - NodeJS
 
-[Learn more about the project](https://drive.google.com/file/d/1mRq2QMnYDs_Rt_whiHHQut2bNx15VFq5/view?usp=sharing)
+[Learn more about the project User and development guide](https://drive.google.com/file/d/1mRq2QMnYDs_Rt_whiHHQut2bNx15VFq5/view?usp=sharing)
